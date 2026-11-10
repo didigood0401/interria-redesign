@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Интерриа - кухни и встроенная мебель на заказ</title>
+<meta name="description" content="Мебельная фабрика «Интерриа»: кухни и встроенная мебель на заказ напрямую от производителя. Срок 14-21 день, фиксированная смета, гарантия 1 год.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#e7e5e0;--surface:#dbd8d2;--ink:#1f1e1c;--muted:#5d5a55;--accent:#5e2433;--accent-ink:#f3efe9;
+ --m:clamp(16px,1.8vw,28px);
+ --step-small:clamp(.8125rem,.79rem + .1vw,.875rem);
+ --step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+ --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
+ --step-head:clamp(2rem,1.3rem + 3.2vw,4rem);
+ --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 var(--step-body)/1.5 Onest,system-ui,sans-serif;letter-spacing:-.005em;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--m);padding:0 var(--m)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font:500 16px Onest,sans-serif;padding:16px 26px;border:0;cursor:pointer;transition:transform .25s var(--ease),background .25s}
+.btn:hover{background:#4a1b28;transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn span{transition:transform .25s var(--ease)}
+.btn:hover span{transform:translateX(4px)}
+h2{font:600 var(--step-head)/1 Onest,sans-serif;letter-spacing:-.04em}
+
+/* HERO */
+.hero{min-height:100svh;overflow:clip;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:54svh 1fr;position:relative}
+.hero-ph{overflow:hidden;position:relative;background:var(--surface)}
+.hero-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{from{transform:scale(1.04)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+nav{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:20px var(--m);z-index:3;color:#fff}
+nav .nm{font:600 16px Onest,sans-serif;letter-spacing:-.02em;text-decoration:none}
+nav ul{display:flex;gap:28px;list-style:none;font-size:16px}
+nav ul a{text-decoration:none;position:relative;padding:4px 0}
+nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+nav ul a:hover::after{transform:scaleX(1)}
+.scrim{position:absolute;inset:0 0 auto 0;height:90px;background:rgba(20,18,16,.35);pointer-events:none}
+.hero-band{display:flex;flex-direction:column;justify-content:space-between;padding:24px var(--m) 0}
+.hero-row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.hero-row p{max-width:560px;font-size:var(--step-body)}
+.word{font:600 calc((100vw - 2 * var(--m)) / 4.08)/.78 Onest,sans-serif;letter-spacing:-.06em;margin-left:-.04em;white-space:nowrap;display:block;transform-origin:50% 100%;padding-bottom:.02em}
+@supports (animation-timeline:scroll()){
+ .word{animation:shrink linear both;animation-timeline:scroll(root);animation-range:0 100svh}
+ @keyframes shrink{to{transform:scale(.93)}}
+}
+.load .word{animation:none}
+.hero h1 .ltr{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
+.word-clip{overflow:hidden;display:block}
+.on .hero h1 .ltr{transform:none}
+
+/* SHOWCASE */
+section{padding:clamp(110px,14vw,220px) 0 0}
+.sc-head{grid-column:3/span 8;margin-bottom:64px}
+.sc-head p{margin-top:18px;max-width:46ch;color:var(--muted)}
+.band{display:flex;height:68svh;min-height:420px}
+.panel{flex-grow:var(--g);flex-basis:0;position:relative;overflow:hidden;transition:flex-grow .6s var(--ease);text-decoration:none;color:#fff}
+.panel img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.panel:hover{flex-grow:6}
+.panel:hover img{transform:scale(1.04)}
+.panel .t{position:absolute;left:0;top:0;padding:22px 24px 40px;background:rgba(20,18,16,.38)}
+.panel .t b{display:block;font:600 28px/1.05 Onest,sans-serif;letter-spacing:-.03em}
+.panel .t i{font-style:normal;font-size:16px}
+.cap{padding:16px var(--m) 0;color:var(--muted);font-size:16px}
+
+/* CONFIG */
+.cfg{background:var(--ink);color:var(--bg);margin-top:clamp(110px,14vw,220px);padding:clamp(80px,9vw,140px) 0}
+.cfg h2{grid-column:1/span 7}
+.cfg .intro{grid-column:1/span 5;margin-top:22px;color:#c8c3ba}
+.cfg-wrap{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:var(--m);margin-top:56px}
+.stage{position:relative;background:#2a2826;aspect-ratio:16/10;overflow:hidden;cursor:grab}
+.stage:active{cursor:grabbing}
+.stage canvas{display:block;width:100%!important;height:100%!important}
+.stage .fallback{position:absolute;inset:0;display:grid;place-items:center;color:#a39d93;font-size:16px;padding:20px;text-align:center}
+.stage .hint{position:absolute;left:14px;bottom:12px;font-size:13px;color:#f3efe9;background:rgba(20,18,16,.55);padding:5px 9px;pointer-events:none}
+.ctl fieldset{border:0;margin-bottom:28px}
+.ctl legend{font:500 16px Onest,sans-serif;margin-bottom:12px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.opts label{position:relative;cursor:pointer}
+.opts input{position:absolute;opacity:0}
+.opts span{display:block;padding:13px 14px;background:#2a2826;font-size:16px;transition:background .25s,color .25s,transform .2s}
+.opts label:hover span{background:#35322f}
+.opts input:checked+span{background:var(--bg);color:var(--ink)}
+.opts input:focus-visible+span{outline:2px solid var(--bg);outline-offset:2px}
+.sw{display:flex;align-items:center;gap:10px}
+.sw i{width:16px;height:16px;flex:none}
+input[type=range]{width:100%;accent-color:#c9b9a4;height:28px}
+.len{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.len b{font:600 28px Onest,sans-serif;letter-spacing:-.03em}
+.res{background:var(--bg);color:var(--ink);padding:22px}
+.res .pr{font:600 clamp(26px,2.2vw,32px)/1 Onest,sans-serif;letter-spacing:-.04em;margin:6px 0 14px}
+.res p{font-size:16px;color:var(--muted)}
+.res .btn{width:100%;margin-top:18px}
+
+/* STEPS */
+.steps{padding-top:clamp(110px,14vw,220px)}
+.st{grid-column:var(--c)/-1;margin-bottom:56px}
+.st h3{font:600 clamp(32px,4.4vw,72px)/1 Onest,sans-serif;letter-spacing:-.045em}
+.st p{max-width:36ch;margin-top:12px;color:var(--muted)}
+.st:last-child h3{color:var(--accent)}
+
+/* GALLERY */
+.gal-head{grid-column:1/span 6}
+.gal-head p{margin-top:18px;max-width:42ch;color:var(--muted)}
+.gal{position:relative;margin-top:72px}
+.gal figure{margin:0}
+.gal figcaption{font-size:var(--step-small);color:var(--muted);margin-top:10px}
+.pair{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--m);padding:0 var(--m);margin-bottom:14vh;align-items:start}
+.pair img{width:100%;height:auto;object-fit:cover}
+.a1{grid-column:1/span 4}.a1 img{aspect-ratio:3/4}
+.a2{grid-column:7/span 6;margin-top:18vh}.a2 img{aspect-ratio:5/4}
+.b1{grid-column:6/span 6}.b1 img{aspect-ratio:3/2}
+.b2{grid-column:2/span 3;margin-top:14vh;grid-row:1}.b2 img{aspect-ratio:4/5}
+.m .a1{grid-column:9/span 4}.m .a2{grid-column:1/span 6;grid-row:1}
+.m .b1{grid-column:2/span 6}.m .b2{grid-column:9/span 3}
+.wipe img{clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease)}
+.js .wipe:not(.in) img{clip-path:inset(100% 0 0 0)}
+
+/* PROOF */
+.pf-head{grid-column:1/span 8;font:600 clamp(40px,5vw,80px)/.95 Onest,sans-serif;letter-spacing:-.045em}
+.pf-head span{display:block;padding-left:calc(2 * (100% + var(--m)) / 8)}
+.tbl{grid-column:1/-1;margin-top:72px;width:100%;border-collapse:collapse;font-size:16px}
+.tbl td{padding:16px 14px;vertical-align:top}
+.tbl tr:nth-child(odd) td{background:var(--surface)}
+.tbl td:first-child{width:22%;font-weight:600}
+.tbl td:nth-child(2){width:36%}
+.tbl td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+
+/* CTA + FOOTER */
+.cta{background:var(--ink);color:var(--bg);min-height:92svh;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(80px,9vw,140px) var(--m) 40px;margin-top:clamp(110px,14vw,220px);position:relative;z-index:2}
+.cta h2{font:600 clamp(56px,10vw,170px)/.9 Onest,sans-serif;letter-spacing:-.055em;max-width:12ch}
+.cta-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.cta-row p{font-size:var(--step-body);max-width:38ch}
+.cta .btn{background:var(--bg);color:var(--ink);min-height:56px}
+.cta .btn:hover{background:#fff}
+.page{position:relative;z-index:2;background:var(--bg)}
+footer{position:sticky;bottom:0;z-index:1;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;background:var(--bg);padding:40px 0 20px}
+.fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--m);padding:0 var(--m);font-size:16px}
+.fcols ul{list-style:none;color:var(--muted)}
+.fcols li:first-child{color:var(--ink);font-weight:500;margin-bottom:6px}
+.fcols a{text-decoration:none}
+.fcols a:hover{color:var(--ink)}
+.fword{padding:0 var(--m)}
+.fword svg{width:100%;height:auto;display:block}
+.legal{padding:10px var(--m) 0;font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* entrances */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0) * 80ms)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+ nav ul{display:none}
+ nav .menu{display:block}
+ .hero{grid-template-rows:50svh 1fr}
+ .hero-band{padding-top:20px;padding-bottom:16px;flex-direction:column-reverse;justify-content:flex-end;gap:22px}
+ .hero-row{flex-direction:column;align-items:flex-start;gap:16px}
+
+ .sc-head,.gal-head,.cfg h2,.cfg .intro{grid-column:1/-1}
+ .band{display:grid;grid-template-columns:64fr 36fr;grid-template-rows:1fr 1fr;height:84svh}
+ .panel:nth-child(3){order:4}.panel:nth-child(4){order:3}
+ .band{grid-template-areas:"a b" "c d"}
+ .panel .t b{font-size:22px}
+ .cfg-wrap{grid-template-columns:1fr}
+ .stage{aspect-ratio:4/3.4}
+ .st{grid-column:1/-1;padding-left:calc(var(--k) * 6vw)}
+ .st h3{font-size:8.4vw}
+ .pair{display:block;margin-bottom:0}
+ .pair figure{margin:0 0 64px!important}
+ .pair figure:nth-child(1){width:70%}
+ .pair figure:nth-child(2){width:84%;margin-left:auto!important}
+ .pf-head,.tbl{grid-column:1/-1}
+ .pf-head{font-size:11vw}
+ .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%!important}
+ .tbl td{padding:4px 14px;text-align:left!important}
+ .tbl tr{padding:12px 0}
+ .tbl tr:nth-child(odd){background:var(--surface)}
+ .tbl tr:nth-child(odd) td{background:none}
+ .cta{min-height:80svh}
+ .cta h2{font-size:15vw}
+ .cta-row{flex-direction:column;align-items:stretch}
+ .cta .btn{width:100%}
+ .fcols{grid-template-columns:1fr 1fr;row-gap:32px;font-size:16px}
+}
+nav .menu{display:none;background:none;border:0;color:inherit;font:500 16px Onest,sans-serif;cursor:pointer}
+@media (max-width:900px){nav .menu{display:block}}
+@media (prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation:none!important;transition:none!important}
+ .js .rv{opacity:1;transform:none}
+ .js .wipe:not(.in) img{clip-path:none}
+ .hero h1 .ltr{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero" id="top">
+ <nav aria-label="Основное меню">
+  <a class="nm" href="#top">Интерриа</a>
+  <ul>
+   <li><a href="#kitchens">Кухни</a></li>
+   <li><a href="#config">Рассчитать</a></li>
+   <li><a href="#built-in">Встроенная мебель</a></li>
+   <li><a href="#contacts">Контакты</a></li>
+  </ul>
+  <button class="menu" type="button" onclick="location.hash='#contacts'">Меню</button>
+ </nav>
+ <div class="hero-ph"><div class="scrim"></div>
+  <img src="img/interria-photo-24.jpg" width="1280" height="1280" alt="Кухня с фасадами под дуб и встроенной техникой, светлые нижние шкафы">
+ </div>
+ <div class="hero-band">
+  <div class="hero-row">
+   <p>Кухни и встроенная мебель на заказ от фабрики в Уве. Срок 14-21 день, смета не меняется после замера.</p>
+   <a class="btn" href="#config">Собрать кухню <span aria-hidden="true">→</span></a>
+  </div>
+  <h1><span class="sr">Интерриа - кухни и встроенная мебель на заказ. </span><span class="word-clip" aria-hidden="true"><span class="word" id="word"></span></span></h1>
+ </div>
+</header>
+
+<main>
+<section id="kitchens" aria-labelledby="k-h">
+ <div class="grid"><div class="sc-head"><h2 id="k-h" class="rv">Кухня под вашу стену</h2><p class="rv" style="--i:1">Четыре планировки, которые мы делаем чаще всего. Наведите на снимок - он раскроется.</p></div></div>
+ <div class="band rv" style="--i:2">
+  <a class="panel" href="#config" data-shape="u" style="--g:5"><img src="img/interria-photo-19.jpg" width="1027" height="1280" alt="П-образная кухня с барной стойкой и мраморным фартуком" loading="lazy"><span class="t"><b>П-образная</b><i>три стены и стойка</i></span></a>
+  <a class="panel" href="#config" data-shape="line" style="--g:2"><img src="img/interria-photo-20.jpg" width="872" height="1280" alt="Прямая классическая кухня, серо-голубые фасады с филёнкой" loading="lazy"><span class="t"><b>Прямая</b></span></a>
+  <a class="panel" href="#config" data-shape="l" style="--g:3"><img src="img/interria-photo-06.jpg" width="1031" height="1280" alt="Угловая кухня с матовыми фасадами без ручек" loading="lazy"><span class="t"><b>Угловая</b></span></a>
+  <a class="panel" href="#config" data-shape="island" style="--g:2"><img src="img/interria-photo-21.jpg" width="1024" height="1280" alt="Кухня с обеденной зоной, фасады под дерево" loading="lazy"><span class="t"><b>С островом</b></span></a>
+ </div>
+ <p class="cap">Фасады: глянец, матовые, под дерево или по вашему образцу.</p>
+</section>
+
+<section class="cfg" id="config" aria-labelledby="c-h">
+ <div class="grid">
+  <h2 id="c-h" class="rv">Соберите свою кухню</h2>
+  <p class="intro rv" style="--i:1">Выберите планировку, длину и фасад. Модель перестроится сразу, а ниже будет ориентир по цене и дате монтажа. Точную смету дизайнер закрепит в договоре.</p>
+  <div class="cfg-wrap">
+   <div class="stage rv" style="--i:2" id="stage"><div class="fallback" id="fb">3D-модель загружается…</div><span class="hint">Потяните, чтобы повернуть</span></div>
+   <form class="ctl rv" style="--i:3" id="ctl" onsubmit="return false">
+    <fieldset><legend>Планировка</legend><div class="opts">
+     <label><input type="radio" name="shape" value="line"><span>Прямая</span></label>
+     <label><input type="radio" name="shape" value="l" checked><span>Угловая</span></label>
+     <label><input type="radio" name="shape" value="u"><span>П-образная</span></label>
+     <label><input type="radio" name="shape" value="island"><span>С островом</span></label>
+    </div></fieldset>
+    <fieldset><legend class="len" style="width:100%"><span>Длина основной стены</span><b id="lv">3,6 м</b></legend>
+     <input type="range" name="len" min="2.4" max="6" step="0.6" value="3.6" aria-label="Длина основной стены, метров">
+    </fieldset>
+    <fieldset><legend>Фасад</legend><div class="opts">
+     <label><input type="radio" name="fac" value="matte" checked><span class="sw"><i style="background:#cfc7bb"></i>Матовый</span></label>
+     <label><input type="radio" name="fac" value="gloss"><span class="sw"><i style="background:#f1eee9"></i>Глянцевый</span></label>
+     <label><input type="radio" name="fac" value="wood"><span class="sw"><i style="background:#a57d55"></i>Под дерево</span></label>
+     <label><input type="radio" name="fac" value="plum"><span class="sw"><i style="background:#5e2433"></i>Цветной</span></label>
+    </div></fieldset>
+    <div class="res" aria-live="polite">
+     <span>Ориентир по стоимости</span>
+     <div class="pr" id="pr">-</div>
+     <p id="dt">-</p>
+     <a class="btn" id="go" href="#contacts">Получить точную смету <span aria-hidden="true">→</span></a>
+    </div>
+   </form>
+  </div>
+ </div>
+</section>
+
+<section class="steps" id="steps" aria-labelledby="s-h">
+ <div class="grid">
+  <div class="st rv" style="--c:1;--k:0"><h3 id="s-h">Сначала вы звоните.</h3><p>Консультация по телефону или в мессенджере, без обязательств.</p></div>
+  <div class="st rv" style="--c:3;--k:1"><h3>Дизайнер едет на замер.</h3><p>Замер, эргономика, образцы материалов и фурнитуры прямо у вас дома.</p></div>
+  <div class="st rv" style="--c:5;--k:2"><h3>Через 48 часов - проект.</h3><p>3D-визуализация и итоговая смета. Цифра в договоре потом не меняется.</p></div>
+  <div class="st rv" style="--c:7;--k:3"><h3>Фабрика режет и собирает.</h3><p>Современное немецкое оборудование, 14-21 день от договора.</p></div>
+  <div class="st rv" style="--c:8;--k:4"><h3>Монтаж за один день.</h3><p>Привезём, соберём, установим и вынесем мусор.</p></div>
+ </div>
+</section>
+
+<section id="built-in" aria-labelledby="b-h">
+ <div class="grid"><div class="gal-head"><h2 id="b-h" class="rv">Встроенная мебель</h2><p class="rv" style="--i:1">Спальни, гардеробные и ванные комнаты по тем же правилам: замер, проект за 48 часов, фиксированная смета.</p></div></div>
+ <div class="gal">
+  <div class="pair">
+   <figure class="a1 wipe"><img src="img/interria-photo-35.jpg" width="1280" height="1202" alt="Спальня со шкафами вокруг изголовья кровати" loading="lazy"><figcaption>Спальня: шкафы, обрамляющие кровать</figcaption></figure>
+   <figure class="a2 wipe"><img src="img/interria-photo-29.jpg" width="1025" height="1280" alt="Спальня с мягкими стеновыми панелями и шкафом под дерево" loading="lazy"><figcaption>Стеновые панели и шкаф в одном материале</figcaption></figure>
+  </div>
+  <div class="pair">
+   <figure class="b1 wipe"><img src="img/interria-photo-34.jpg" width="1031" height="1280" alt="Ванная с тумбой под накладную раковину и шкафом над инсталляцией" loading="lazy"><figcaption>Ванная: тумба и шкаф над инсталляцией</figcaption></figure>
+   <figure class="b2 wipe"><img src="img/interria-photo-33.jpg" width="909" height="1280" alt="Подвесная тумба под дерево с зеркалом с подсветкой" loading="lazy"><figcaption>Подвесная тумба с подсветкой</figcaption></figure>
+  </div>
+  <div class="pair m">
+   <figure class="a1 wipe"><img src="img/interria-photo-38.jpg" width="1045" height="1280" alt="Белый шкаф-купе от пола до потолка в спальне" loading="lazy"><figcaption>Шкаф до потолка без антресолей</figcaption></figure>
+   <figure class="a2 wipe"><img src="img/interria-photo-26.jpg" width="883" height="1280" alt="Кухня со сливовыми фасадами и обеденной группой" loading="lazy"><figcaption>Кухня в цвете: сливовые фасады</figcaption></figure>
+  </div>
+  <div class="pair m">
+   <figure class="b1 wipe"><img src="img/interria-photo-36.jpg" width="960" height="1280" alt="Синяя классическая кухня с круглым обеденным столом" loading="lazy"><figcaption>Глянец и классика в синем</figcaption></figure>
+   <figure class="b2 wipe"><img src="img/interria-photo-10.jpg" width="1035" height="1280" alt="Ванная с колонной и шкафом в цвете марсала" loading="lazy"><figcaption>Шкаф-колонна в ванной</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section id="terms" aria-labelledby="t-h">
+ <div class="grid">
+  <h2 class="pf-head rv" id="t-h">Что мы пишем<span>в договоре</span></h2>
+  <table class="tbl rv" style="--i:1">
+   <caption class="sr">Условия работы фабрики</caption>
+   <tbody>
+    <tr><td>Смета</td><td>Фиксированная</td><td>Стоимость из договора не меняется после замера</td><td>0 ₽ доплат</td></tr>
+    <tr><td>Проект</td><td>3D-визуализация</td><td>Готовим после замера вместе с итоговой сметой</td><td>48 часов</td></tr>
+    <tr><td>Производство</td><td>Немецкое оборудование</td><td>Запуск в работу сразу после договора</td><td>14-21 день</td></tr>
+    <tr><td>Монтаж</td><td>Под ключ</td><td>Доставка, сборка, установка и вывоз мусора</td><td>1 день</td></tr>
+    <tr><td>Гарантия</td><td>На материалы и работу</td><td>Без посредников: вы платите фабрике напрямую</td><td>1 год</td></tr>
+   </tbody>
+  </table>
+ </div>
+</section>
+</main>
+
+<section class="cta" aria-labelledby="cta-h">
+ <h2 id="cta-h" class="rv">Кухня за три недели</h2>
+ <div class="cta-row">
+  <p class="rv" style="--i:1">Позвоните - рассчитаем стоимость и пришлём визуализацию сегодня.</p>
+  <a class="btn rv" style="--i:2" href="tel:+79270811839">+7 927 081-18-39 <span aria-hidden="true">→</span></a>
+ </div>
+</section>
+
+</div>
+<footer id="contacts">
+ <div class="fcols">
+  <ul><li>Фабрика</li><li>Удмуртская Республика,</li><li>пос. Ува, ул. К. Маркса, 12</li></ul>
+  <ul><li>Разделы</li><li><a href="#kitchens">Кухни</a></li><li><a href="#built-in">Встроенная мебель</a></li><li><a href="#steps">Этапы работы</a></li></ul>
+  <ul><li>Связь</li><li><a href="tel:+79270811839">+7 927 081-18-39</a></li><li><a href="tel:+79625204965">+7 962 520-49-65</a></li><li><a href="mailto:mail@interria.ru">mail@interria.ru</a></li><li><a href="https://vk.ru/m_interria">ВКонтакте</a></li></ul>
+  <ul><li>Часы</li><li>Ежедневно с 9:00 до 20:00</li><li>Замер - по записи</li></ul>
+ </div>
+ <div></div>
+ <div>
+  <div class="fword" aria-hidden="true"><svg viewBox="0 0 1000 150"><text x="-6" y="140" textLength="1010" lengthAdjust="spacingAndGlyphs" font-family="Onest, sans-serif" font-weight="600" font-size="186" letter-spacing="-10" fill="#1f1e1c">INTERRIA</text></svg></div>
+  <div class="legal"><span>© 2026 Мебельная фабрика «Интерриа»</span><span>Концепция редизайна</span></div>
+ </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+// hero letters
+const w=document.getElementById('word');'INTERRIA'.split('').forEach((c,i)=>{const s=document.createElement('span');s.className='ltr';s.textContent=c;s.style.transitionDelay=(i*55)+'ms';w.appendChild(s)});
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('on')));
+// entrances
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+document.querySelectorAll('.rv,.wipe').forEach(x=>io.observe(x));
+// showcase panels preselect shape
+document.querySelectorAll('.panel').forEach(p=>p.addEventListener('click',()=>{const r=document.querySelector(`input[name=shape][value=${p.dataset.shape}]`);if(r){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}))}}));
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="kitchen.js"></script>
+</body>
+</html>
