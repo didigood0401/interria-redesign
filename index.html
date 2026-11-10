@@ -44,7 +44,7 @@ nav ul{display:flex;gap:28px;list-style:none;font-size:16px}
 nav ul a{text-decoration:none;position:relative;padding:4px 0}
 nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
 nav ul a:hover::after{transform:scaleX(1)}
-.scrim{position:absolute;inset:0 0 auto 0;height:90px;background:rgba(20,18,16,.35);pointer-events:none}
+.scrim{position:absolute;inset:0 0 auto 0;height:90px;background:rgba(20,18,16,.5);pointer-events:none}
 .hero-band{display:flex;flex-direction:column;justify-content:space-between;padding:24px var(--m) 0}
 .hero-row{display:flex;justify-content:space-between;align-items:center;gap:24px}
 .hero-row p{max-width:560px;font-size:var(--step-body)}
@@ -67,7 +67,7 @@ section{padding:clamp(110px,14vw,220px) 0 0}
 .panel img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .panel:hover{flex-grow:6}
 .panel:hover img{transform:scale(1.04)}
-.panel .t{position:absolute;left:0;top:0;padding:22px 24px 40px;background:rgba(20,18,16,.38)}
+.panel .t{position:absolute;left:0;top:0;padding:22px 24px 26px;background:rgba(20,18,16,.6)}
 .panel .t b{display:block;font:600 28px/1.05 Onest,sans-serif;letter-spacing:-.03em}
 .panel .t i{font-style:normal;font-size:16px}
 .cap{padding:16px var(--m) 0;color:var(--muted);font-size:16px}
